@@ -1,5 +1,7 @@
 landingpage.iml
 .idea/
 db.sqlite3
+#we don't care about compiled stuff django spits out
 landing/__pycache__/
 newsletter/__pacache__/
+*.pyc
