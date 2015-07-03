@@ -1,0 +1,5 @@
+landingpage.iml
+.idea/
+db.sqlite3
+landing/__pycache__/
+newsletter/__pacache__/

@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Mapplop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Questrial|Josefin+Sans' rel='stylesheet' type='text/css'>
+    <style>
+      body{
+          background-image: url("{% static 'img/hellraisins1.jpg' %}");
+          background-size: cover;
+      }
+      p{
+        font-size: 20px;
+      }
+
+      #contact{
+        margin-top: 100px;
+      }
+      form{
+        margin-top: 50px;
+      }
+    </style>
+
+    <script>
+
+        function checkFields() {
+            if(validateEmail()) {
+                //do ajax post to django if the fields are filled out correctly
+            }
+        }
+        //just do a simple check to validate email
+        function validateEmail() {
+            var emailReg = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+            var emailValue = document.getElementById("exampleInputEmail2").value;
+            return emailReg.test(emailValue);
+        }
+    </script>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          
+
+          <div class="inner cover">
+            <img src="{% static 'img/bandploptext.png' %}" >
+            <h1 class="cover-heading">mapplop</h1>
+
+            
+            <p class="lead">
+              <p>tools for the industry...for everyone</p>
+              
+            </p>
+
+              <form action='' method='POST'>{% csrf_token %}
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" placeholder="Name" name='name' value='{{ current_name }}' required>
+                </div>
+                <div class="form-group">
+
+                  <input type="email" class="form-control" id="emailField" placeholder="Email" name='email' value="{{ current_email }}">
+                </div>
+                <button type="submit" class="btn btn-default" onclick="validateEmail();">Join Newsletter</button>
+
+              </form>
+          </div>
+            <p id='contact'>feel free to contact us at...</p>
+            <p>mapplop@gmail.com</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+<p> COMING 2016 </p>
+<p id='tm'>mapplop&#8482;<p>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  </body>
+</html>
