@@ -19,19 +19,27 @@
     <link href="{% static 'css/cover.css' %}" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Questrial|Josefin+Sans' rel='stylesheet' type='text/css'>
     <style>
-      body{
+      body, html{
           background-image: url("{% static 'img/hellraisins1.jpg' %}");
           background-size: cover;
+          background-repeat: no-repeat;
       }
       p{
         font-size: 20px;
       }
-
+      button {
+        display: block; 
+        text-align: center;
+      }
       #contact{
         margin-top: 100px;
       }
       form{
         margin-top: 50px;
+      }
+
+      .formE {
+        margin: 30px;
       }
     </style>
 
@@ -76,15 +84,27 @@
                   <input type="text" class="form-control" id="name" placeholder="Name" name='name' value='{{ current_name }}' required>
                 </div>
                 <div class="form-group">
-
                   <input type="email" class="form-control" id="emailField" placeholder="Email" name='email' value="{{ current_email }}">
                 </div>
-                <button type="submit" class="btn btn-default" onclick="validateEmail();">Join Newsletter</button>
-
+                <label class="radio-inline">
+                  <input type="radio" class="formE" name="inlineRadioOptions" id="inlineRadio1" value="Band"> Band
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" class="formE" name="inlineRadioOptions" id="inlineRadio2" value="Venue"> Venue
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" class="formE" name="inlineRadioOptions" id="inlineRadio3" value="Regular Guy" checked= "checked"> Regular Guy
+                </label>
+                <div>
+                  <button type="submit" class="btn btn-default formE" onclick="validateEmail();">Join Newsletter</button>
+                </div>
               </form>
+
+<p>mapplop@gmail.com</p>
+<p> COMING 2016</p>
+<p id='tm'>mapplop&#8482;<p>
           </div>
-            <p id='contact'>feel free to contact us at...</p>
-            <p>mapplop@gmail.com</p>
+            
         </div>
 
       </div>
@@ -92,8 +112,6 @@
     </div>
 
 
-<p> COMING 2016 </p>
-<p id='tm'>mapplop&#8482;<p>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

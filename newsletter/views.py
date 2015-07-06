@@ -33,10 +33,9 @@ def home(request):
     if request.method == 'POST':
         nameF = request.POST['name']
         emailF = request.POST['email']
+        user_typeF = request.POST['inlineRadioOptions']
         ipF = get_client_ip(request)
-        print(nameF)
-        print(emailF)
-        form_instance = SignUp(full_name=nameF, email=emailF, ip = ipF)
+        form_instance = SignUp(full_name = nameF, email = emailF, ip = ipF, user_type = user_typeF)
         form_instance.save()
     return render(request, 'base.html')
 
