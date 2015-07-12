@@ -20,9 +20,10 @@ from django.conf import settings
 
 urlpatterns = [
 	url(r'^$', 'newsletter.views.home', name='home'),
-	url(r'^contact/$', 'newsletter.views.contact', name='contact'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^home/$', 'newsletter.views.home', name='home'),
+    
+    
+
 
 ]
 

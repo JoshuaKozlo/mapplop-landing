@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mapplop@gmail.com'
-EMAIL_HOST_PASSWORD = '3edc3edc#EDC#EDC'
+EMAIL_HOST_USER = 'mapplop.news@gmail.com'
+EMAIL_HOST_PASSWORD = 'maPPloP1qaz!QAZ'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -115,3 +115,6 @@ STATICFILES_DIRS =(
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_root")
+GEOIP_PATH = os.path.join(BASE_DIR, 'static', 'our_static', 'geoip')
+GEOIP_CITY = os.path.join(GEOIP_PATH, 'GeoLiteCity.dat')
+GEOIP_COUNTRY = os.path.join(GEOIP_PATH, 'GEOIP_COUNTRY')

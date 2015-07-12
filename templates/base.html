@@ -41,22 +41,27 @@
       .formE {
         margin: 30px;
       }
+
+      #social{
+        display: inline;
+        list-style: none;
+        margin-right: 50px;
+      }
+
+      li {
+        display: inline;
+        padding-left: 10px;
+      }
+      li img {
+        opacity: 0.5;
+      }
+
+      span {
+        font-size: 7px;
+      }
     </style>
 
-    <script>
 
-        function checkFields() {
-            if(validateEmail()) {
-                //do ajax post to django if the fields are filled out correctly
-            }
-        }
-        //just do a simple check to validate email
-        function validateEmail() {
-            var emailReg = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
-            var emailValue = document.getElementById("exampleInputEmail2").value;
-            return emailReg.test(emailValue);
-        }
-    </script>
   </head>
 
   <body>
@@ -71,20 +76,21 @@
 
           <div class="inner cover">
             <img src="{% static 'img/bandploptext.png' %}" >
-            <h1 class="cover-heading">mapplop</h1>
+            <h1 class="cover-heading">mapplop<span>TM</span></h1>
 
             
             <p class="lead">
               <p>tools for the industry...for everyone</p>
+
               
             </p>
 
-              <form action='' method='POST'>{% csrf_token %}
+              <form action='' method='POST' id="form">{% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control" id="name" placeholder="Name" name='name' value='{{ current_name }}' required>
+                  <input type="text" class="form-control" id="name" placeholder="Name" name='name' value='{{ current_name }}'>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="emailField" placeholder="Email" name='email' value="{{ current_email }}">
+                  <input type="email" class="form-control" id="emailField" placeholder="Email" name='email' oninput='validateEmail()' value="{{ current_email }}">
                 </div>
                 <label class="radio-inline">
                   <input type="radio" class="formE" name="inlineRadioOptions" id="inlineRadio1" value="Band"> Band
@@ -96,13 +102,18 @@
                   <input type="radio" class="formE" name="inlineRadioOptions" id="inlineRadio3" value="Regular Guy" checked= "checked"> Regular Guy
                 </label>
                 <div>
-                  <button type="submit" class="btn btn-default formE" onclick="validateEmail();">Join Newsletter</button>
+                  <button type="submit" id='button' class="btn btn-default formE" onclick='clearForm()' disabled>Join Newsletter</button>
                 </div>
               </form>
 
-<p>mapplop@gmail.com</p>
-<p> COMING 2016</p>
-<p id='tm'>mapplop&#8482;<p>
+              
+              <ul id='social'>
+                <li><a href='https://plus.google.com/u/1/b/110870401940599501561/110870401940599501561/about'><img src="{% static 'img/1510-google-plus2.svg' %}"></a></li>
+                <li><a href='https://www.facebook.com/mapplop'><img src="{% static 'img/1514-facebook2.svg' %}" ></a></li>
+                <li><a href='https://twitter.com/mapplop'><img src="{% static 'img/1519-twitter2.svg' %}" ></a></li>
+              </ul>
+             
+
           </div>
             
         </div>
@@ -120,5 +131,21 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script>
+        
+        function validateEmail() {
+            var emailReg = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+            var emailValue = document.getElementById("emailField").value;
+            if(emailReg.test(emailValue)) {
+              document.getElementById("button").disabled = false;  
+            } else {
+              document.getElementById("button").disabled = true; 
+            }
+        }
+
+        function clearForm() {
+          
+        }
+    </script>
   </body>
 </html>
