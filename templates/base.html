@@ -59,6 +59,9 @@
       span {
         font-size: 7px;
       }
+      audio { 
+        display:none;
+      }
     </style>
 
 
@@ -105,14 +108,12 @@
                   <button type="submit" id='button' class="btn btn-default formE" onclick='clearForm()' disabled>Join Newsletter</button>
                 </div>
               </form>
-
-              
               <ul id='social'>
                 <li><a href='https://plus.google.com/u/1/b/110870401940599501561/110870401940599501561/about'><img src="{% static 'img/1510-google-plus2.svg' %}"></a></li>
                 <li><a href='https://www.facebook.com/mapplop'><img src="{% static 'img/1514-facebook2.svg' %}" ></a></li>
                 <li><a href='https://twitter.com/mapplop'><img src="{% static 'img/1519-twitter2.svg' %}" ></a></li>
               </ul>
-             
+             <audio autoplay="true" src="{% static 'audio/jingle.mp3' %}">
 
           </div>
             
