@@ -25,7 +25,7 @@ SECRET_KEY = 'rrgq4!mzhqzl$z_-fa%z=c9nar1o1qxc%z3!3g59g9m%&(f!ec'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://hidden-hollows-2461.herokuapp.com/', 'www.mapplop.com']
+ALLOWED_HOSTS = ['.herokuapp.com', 'mapplop.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mapplop.news@gmail.com'
